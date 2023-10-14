@@ -25,7 +25,7 @@ class FifthActivity : AppCompatActivity() {
         val totalamount = intent.getStringExtra(FourthActivity.EXTRA_TOTALBAYAR)
         val name = intent.getStringExtra(FourthActivity.EXTRA_USERNAME)
 
-        //ga yakin pake ini karena bingung jelasinnya
+        //buat ngubah format tanggalnya
         val sdf = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
         val dateObj = sdf.parse(date)
         val formattedDate = SimpleDateFormat("EEEE, dd MMMM yyyy", Locale.getDefault()).format(dateObj)

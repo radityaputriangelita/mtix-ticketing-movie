@@ -16,7 +16,6 @@ class ThirdActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         val webView: WebView = binding.webView
-
         val video: String = "<iframe width=\"100%\" height=\"100%\" src=\"https://www.youtube.com/embed/qEVUtrk8_B4?si=i8VI_s6ld-1FM2yB\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" allowfullscreen></iframe>"
         webView.loadData(video, "text/html", "utf-8")
         webView.settings.javaScriptEnabled = true
