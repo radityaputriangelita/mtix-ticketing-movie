@@ -21,9 +21,12 @@ class ThirdActivity : AppCompatActivity() {
         webView.loadData(video, "text/html", "utf-8")
         webView.settings.javaScriptEnabled = true
         webView.webChromeClient = WebChromeClient()
+
+        val username = intent.getStringExtra(MainActivity.EXTRA_USERNAME)
         with(binding){
             btnOrders.setOnClickListener {
                 val intentToFourthActivity = Intent(this@ThirdActivity, FourthActivity::class.java)
+                intentToFourthActivity.putExtra(SecondActivity.EXTRA_USERNAME,username.toString())
                 startActivity(intentToFourthActivity)
             }
 

@@ -6,4 +6,5 @@
     </style>
 
     <style name="Theme.Movieticket" parent="Base.Theme.Movieticket" />
+
 </resources>

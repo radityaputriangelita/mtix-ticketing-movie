@@ -23,8 +23,11 @@ class FourthActivity : AppCompatActivity() {
         const val EXTRA_JENISKURSI = "extra_jeniskursi"
         const val EXTRA_METODEPEMBAYARAN = "extre_metodepembayaran"
         const val EXTRA_PILIHANPEMBAYARAN = "extra_pilihanpembayaran"
+        const val EXTRA_TOTALBAYAR = "extra_totalbayar"
+        const val EXTRA_USERNAME = "extra_username"
+        }
 
-    }
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,6 +40,7 @@ class FourthActivity : AppCompatActivity() {
         val ListBank = resources.getStringArray(R.array.Bank)
         val ListWallet = resources.getStringArray(R.array.E_wallet)
 
+        val username = intent.getStringExtra(MainActivity.EXTRA_USERNAME)
         with(binding) {
             var num = 0
             val BioskopAdaptor = ArrayAdapter(
@@ -62,22 +66,6 @@ class FourthActivity : AppCompatActivity() {
             pilihanSeat.adapter = KursiAdaptor
             BayarAdaptor.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
             methodePembayaran.adapter = BayarAdaptor
-
-//            val pilihanTempatSpinner = binding.pilihanBioskop
-//            pilihanTempatSpinner.onItemSelectedListener =
-//                object : AdapterView.OnItemSelectedListener {
-//                    override fun onItemSelected(
-//                        parent: AdapterView<*>,
-//                        view: View?,
-//                        position: Int,
-//                        id: Long
-//                    ){
-//                        val intentToFifthActivity = Intent(this@FourthActivity, FifthActivity::class.java)
-//                        intentToFifthActivity.putExtra(FourthActivity.EXTRA_PLACE,pilihanTempatSpinner.selectedItem.toString())
-//                    }
-//                    override fun onNothingSelected(parent: AdapterView<*>) {
-//                    }
-//                }
 
             buttonTgl.setOnClickListener {
                 val c = Calendar.getInstance()
@@ -175,7 +163,14 @@ class FourthActivity : AppCompatActivity() {
             btnOrderSummary.setOnClickListener{
                 val intentToFifthActivity = Intent (this@FourthActivity, FifthActivity::class.java)
                 intentToFifthActivity.putExtra(EXTRA_PLACE,pilihanBioskop.selectedItem.toString())
-
+                intentToFifthActivity.putExtra(EXTRA_DATE,mdy.text.toString())
+                intentToFifthActivity.putExtra(EXTRA_TIME,time.text.toString())
+                intentToFifthActivity.putExtra(EXTRA_JUMLAHKURSI,jumlahKursiFix.text.toString())
+                intentToFifthActivity.putExtra(EXTRA_JENISKURSI,pilihanSeat.selectedItem.toString())
+                intentToFifthActivity.putExtra(EXTRA_METODEPEMBAYARAN,methodePembayaran.selectedItem.toString())
+                intentToFifthActivity.putExtra(EXTRA_PILIHANPEMBAYARAN,bankPilihan.selectedItem.toString())
+                intentToFifthActivity.putExtra(EXTRA_TOTALBAYAR,totalHarga.text.toString())
+                intentToFifthActivity.putExtra(MainActivity.EXTRA_USERNAME,username.toString())
                 startActivity(intentToFifthActivity)
             }
             btnBack.setOnClickListener{

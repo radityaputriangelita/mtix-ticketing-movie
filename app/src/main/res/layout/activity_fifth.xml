@@ -228,9 +228,20 @@
         android:id="@+id/TicketPaymentMethod"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Transfer Bank (BNI)"
+        android:text="Transfer Bank"
         android:layout_below="@id/TicketPaymentMethodTitle"
         android:layout_alignStart="@id/RoomTheater"
+        android:layout_marginTop="5dp"
+        android:textStyle="bold"
+        android:textSize="18dp"/>
+    <TextView
+        android:id="@+id/TicketCaraBayar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="BNI"
+        android:layout_below="@id/TicketPaymentMethodTitle"
+        android:layout_toRightOf="@id/TicketPaymentMethod"
+        android:layout_marginStart="5dp"
         android:layout_marginTop="5dp"
         android:textStyle="bold"
         android:textSize="18dp"/>

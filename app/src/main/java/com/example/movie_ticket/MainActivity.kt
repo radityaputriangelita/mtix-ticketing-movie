@@ -26,7 +26,7 @@ class MainActivity : AppCompatActivity() {
                     intentToSecondActivity.putExtra(EXTRA_USERNAME,usernameInputEdittext.text.toString())
                     startActivity(intentToSecondActivity)
                 } else {
-                    Toast.makeText(this@MainActivity, "Login Failed, Try Againn", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this@MainActivity, "Login Failed, Try Again", Toast.LENGTH_SHORT).show()
                 }
             }
         }
