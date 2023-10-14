@@ -2,6 +2,7 @@ package com.example.movie_ticket
 
 import android.app.DatePickerDialog
 import android.app.TimePickerDialog
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -14,6 +15,17 @@ import java.util.Calendar
 
 class FourthActivity : AppCompatActivity() {
     private lateinit var binding: ActivityFourthBinding
+    companion object{
+        const val EXTRA_PLACE = "extra_place"
+        const val EXTRA_DATE = "extra_date"
+        const val EXTRA_TIME = "extra_time"
+        const val EXTRA_JUMLAHKURSI = "extra_jumlahkursi"
+        const val EXTRA_JENISKURSI = "extra_jeniskursi"
+        const val EXTRA_METODEPEMBAYARAN = "extre_metodepembayaran"
+        const val EXTRA_PILIHANPEMBAYARAN = "extra_pilihanpembayaran"
+
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityFourthBinding.inflate(layoutInflater)
@@ -23,8 +35,10 @@ class FourthActivity : AppCompatActivity() {
         val ListKursi = resources.getStringArray(R.array.kursi)
         val MetodeBayar = resources.getStringArray(R.array.metode_bayar)
         val ListBank = resources.getStringArray(R.array.Bank)
+        val ListWallet = resources.getStringArray(R.array.E_wallet)
 
         with(binding) {
+            var num = 0
             val BioskopAdaptor = ArrayAdapter(
                 this@FourthActivity,
                 androidx.appcompat.R.layout.support_simple_spinner_dropdown_item,
@@ -40,11 +54,7 @@ class FourthActivity : AppCompatActivity() {
                 androidx.appcompat.R.layout.support_simple_spinner_dropdown_item,
                 MetodeBayar
             )
-            val BankAdaptor = ArrayAdapter(
-                this@FourthActivity,
-                androidx.appcompat.R.layout.support_simple_spinner_dropdown_item,
-                ListBank
-            )
+
 
             BioskopAdaptor.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
             pilihanBioskop.adapter = BioskopAdaptor
@@ -52,8 +62,22 @@ class FourthActivity : AppCompatActivity() {
             pilihanSeat.adapter = KursiAdaptor
             BayarAdaptor.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
             methodePembayaran.adapter = BayarAdaptor
-            BankAdaptor.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-            bankPilihan.adapter = BankAdaptor
+
+//            val pilihanTempatSpinner = binding.pilihanBioskop
+//            pilihanTempatSpinner.onItemSelectedListener =
+//                object : AdapterView.OnItemSelectedListener {
+//                    override fun onItemSelected(
+//                        parent: AdapterView<*>,
+//                        view: View?,
+//                        position: Int,
+//                        id: Long
+//                    ){
+//                        val intentToFifthActivity = Intent(this@FourthActivity, FifthActivity::class.java)
+//                        intentToFifthActivity.putExtra(FourthActivity.EXTRA_PLACE,pilihanTempatSpinner.selectedItem.toString())
+//                    }
+//                    override fun onNothingSelected(parent: AdapterView<*>) {
+//                    }
+//                }
 
             buttonTgl.setOnClickListener {
                 val c = Calendar.getInstance()
@@ -64,12 +88,7 @@ class FourthActivity : AppCompatActivity() {
                 val dpd = DatePickerDialog(
                     this@FourthActivity,
                     DatePickerDialog.OnDateSetListener { _, year, monthOfYear, dayOfMonth ->
-                        mdy.setText("" + dayOfMonth + "/" + (monthOfYear + 1) + "/" + year)
-                    },
-                    year,
-                    month,
-                    day
-                )
+                        mdy.setText("" + dayOfMonth + "/" + (monthOfYear + 1) + "/" + year) }, year, month, day)
                 dpd.show()
             }
 
@@ -81,17 +100,26 @@ class FourthActivity : AppCompatActivity() {
                 val timePickerDialog = TimePickerDialog(
                     this@FourthActivity,
                     TimePickerDialog.OnTimeSetListener { _, selectedHour, selectedMinute ->
-                        time.text = String.format("%02d:%02d", selectedHour, selectedMinute)
-                    },
-                    hour,
-                    minute,
+                        time.text = String.format("%02d:%02d", selectedHour, selectedMinute) }, hour, minute,
                     false
                 )
                 timePickerDialog.show()
             }
 
+            btnPlus.setOnClickListener {
+                num++
+                jumlahKursiFix.text = num.toString()
+                jumlahKursiFix2.text = num.toString()
+            }
+            btnMin.setOnClickListener {
+                num--
+                if (num < 0) num = 0
+                jumlahKursiFix.text = num.toString()
+                jumlahKursiFix2.text = num.toString()
+            }
             val pilihanSeatSpinner = binding.pilihanSeat
             val hargaKursiTextView = binding.hargaKursi
+            val totalHargaTextView = binding.totalHarga
 
             pilihanSeatSpinner.onItemSelectedListener =
                 object : AdapterView.OnItemSelectedListener {
@@ -102,19 +130,64 @@ class FourthActivity : AppCompatActivity() {
                         id: Long
                     ) {
                         val selectedSeat = ListKursi[position]
-                        val harga: String = when (selectedSeat) {
-                            "Reguler" -> "Rp35,000"
-                            "Dobly Atmos" -> "Rp50,000"
-                            "Imax" -> "Rp75,000"
-                            "The Premiere" -> "Rp120,000"
-                            else -> "Rp0"
+                        val harga: Int = when (selectedSeat) {
+                            "Reguler" -> 35000
+                            "Dobly Atmos" -> 50000
+                            "Imax" -> 75000
+                            "The Premiere" -> 120000
+                            else -> 0
                         }
-                        hargaKursiTextView.text = harga
+                        val hargaString = String.format("Rp%,d", harga)
+                        hargaKursiTextView.text = hargaString
+                        val harga_total = harga * num
+                        val hargaTotalString = String.format("Rp%,d", harga_total)
+                        totalHargaTextView.text = hargaTotalString
+
                     }
                     override fun onNothingSelected(parent: AdapterView<*>) {
                     }
                 }
+            val pilihanMethodSpinner = binding.methodePembayaran
+
+            pilihanMethodSpinner.onItemSelectedListener =
+                object : AdapterView.OnItemSelectedListener {
+                    override fun onItemSelected(
+                        parent: AdapterView<*>,
+                        view: View?,
+                        position: Int,
+                        id: Long
+                    ){
+                        val selectedMethod = MetodeBayar[position]
+                        if(selectedMethod == "Transfer Bank"){
+                            val BankAdaptor = ArrayAdapter(this@FourthActivity, androidx.appcompat.R.layout.support_simple_spinner_dropdown_item, ListBank)
+                            BankAdaptor.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+                            bankPilihan.adapter = BankAdaptor
+                        } else {
+                            val WalletAdaptor = ArrayAdapter(this@FourthActivity,androidx.appcompat.R.layout.support_simple_spinner_dropdown_item,
+                                ListWallet)
+                            WalletAdaptor.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+                            bankPilihan.adapter = WalletAdaptor
+                        }
+                    }
+                    override fun onNothingSelected(parent: AdapterView<*>) {
+                    }
+                }
+            btnOrderSummary.setOnClickListener{
+                val intentToFifthActivity = Intent (this@FourthActivity, FifthActivity::class.java)
+                intentToFifthActivity.putExtra(EXTRA_PLACE,pilihanBioskop.selectedItem.toString())
+
+                startActivity(intentToFifthActivity)
+            }
+            btnBack.setOnClickListener{
+                val intentToThirdActivity = Intent(this@FourthActivity, ThirdActivity::class.java)
+                startActivity(intentToThirdActivity)
+            }
+
         }
+
+
     }
 }
+
+
 

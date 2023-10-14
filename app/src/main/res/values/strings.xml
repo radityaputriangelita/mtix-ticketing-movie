@@ -28,4 +28,10 @@
         <item>MANDIRI</item>
         <item>BTPN</item>
     </array>
+    <array name="E_wallet">
+        <item>Dana</item>
+        <item>Ovo</item>
+        <item>Shopeepay</item>
+        <item>Gopay</item>
+    </array>
 </resources>

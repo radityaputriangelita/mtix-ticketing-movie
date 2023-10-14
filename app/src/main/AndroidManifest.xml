@@ -18,7 +18,7 @@
             android:name=".FifthActivity"
             android:exported="false" />
         <activity
-            android:name=".FourthActivity"
+            android:name=".MainActivity"
             android:exported="false" />
         <activity
             android:name=".ThirdActivity"
@@ -30,7 +30,7 @@
             android:name=".SecondActivity"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".FourthActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
