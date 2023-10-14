@@ -1,0 +1,31 @@
+<resources>
+    <string name="app_name">movie-ticket</string>
+    <array name="bioskop">
+        <item>XXI The Empire</item>
+        <item>XXI Jogja City Mall</item>
+        <item>CGV Hartono Mall</item>
+        <item>XXI Ambarukkmo</item>
+        <item>Cinemaxx Lippo Plaza</item>
+        <item>CGV Transmart Maguwo</item>
+        <item>CGV Blitz J-Walk</item>
+        <item>XXI Sleman City Hall</item>
+    </array>
+    <array name="kursi">
+        <item>Reguler</item>
+        <item>Dobly Atmos</item>
+        <item>Imax</item>
+        <item>The Premiere</item>
+    </array>
+    <array name="metode_bayar">
+        <item>Transfer Bank</item>
+        <item>E-Wallet</item>
+    </array>
+    <array name="Bank">
+        <item>BCA</item>
+        <item>JAGO</item>
+        <item>BRI</item>
+        <item>BNI</item>
+        <item>MANDIRI</item>
+        <item>BTPN</item>
+    </array>
+</resources>

@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ThirdActivity">
+
+        <Button
+            android:id="@+id/btn_back"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginEnd="30dp"
+            android:layout_marginBottom="30dp"
+            android:background="@drawable/baseline_arrow_back_ios_24"
+            android:onClick="Details_to_Home"
+            android:clickable="true"></Button>
+    <TextView
+        android:id="@+id/movies_detail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Details Movie"
+        android:textSize="30dp"
+        android:textStyle="bold"
+        android:layout_centerHorizontal="true"
+        android:layout_alignBaseline="@id/btn_back"/>
+
+            <WebView
+                android:id="@+id/web_view"
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:layout_marginTop="10dp"
+                android:layout_below="@id/movies_detail"/>
+            <ImageView
+                android:id="@+id/jwPoseter"
+                android:layout_width="160dp"
+                android:layout_height="210dp"
+                android:src="@drawable/johnwick"
+                android:layout_below="@id/web_view"
+                android:layout_marginTop="-40dp"
+                android:layout_marginStart="30dp"/>
+            <TextView
+                android:id="@+id/jwTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="JOHN WICK 4"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:layout_toRightOf="@id/jwPoseter"
+                android:layout_alignTop="@id/jwPoseter"
+                android:layout_marginTop="55dp"
+                android:layout_marginStart="20dp"/>
+            <TextView
+                android:id="@+id/jwd"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2D"
+                android:background="@drawable/shapeline"
+                android:layout_alignStart="@id/jwTitle"
+                android:layout_below="@id/jwTitle"/>
+            <TextView
+                android:id="@+id/jwu"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="17+"
+                android:layout_marginStart="10dp"
+                android:background="@drawable/shapeline"
+                android:layout_toRightOf="@id/jwd"
+                android:layout_below="@id/jwTitle"/>
+            <TextView
+                android:id="@+id/jwDirector"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Directore : Chad Stahelski"
+                android:textSize="12dp"
+                android:layout_below="@id/jwd"
+                android:layout_alignStart="@id/jwd"
+                android:layout_marginTop="10dp"/>
+            <TextView
+                android:id="@+id/jwg1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Neo-Noir"
+                android:padding="3dp"
+                android:background="@color/green_blue"
+                android:textColor="@color/white"
+                android:layout_below="@id/jwDirector"
+                android:layout_marginTop="10dp"
+                android:layout_alignStart="@id/jwDirector"/>
+            <TextView
+                android:id="@+id/jwg2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Thriller"
+                android:padding="3dp"
+                android:background="@color/orange"
+                android:textColor="@color/white"
+                android:layout_below="@id/jwDirector"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="15dp"
+                android:layout_toRightOf="@id/jwg1"/>
+            <ImageView
+                android:layout_width="90dp"
+                android:layout_height="wrap_content"
+                android:src="@drawable/bintang_5"
+                android:layout_below="@id/jwg1"
+                android:layout_alignStart="@id/jwg1"
+                android:layout_marginTop="10dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:id="@+id/storyline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/jwPoseter"
+                android:text="Story Line"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:layout_marginTop="20dp"
+                android:layout_alignStart="@id/storylinecontent"/>
+            <com.borjabravo.readmoretextview.ReadMoreTextView
+                android:id="@+id/storylinecontent"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@id/storyline"
+                android:layout_marginTop="15dp"
+                android:text="With the price on his head ever increasing, legendary hit man John Wick takes his fight against the High Table global as he seeks out the most powerful players in the underworld, from New York to Paris to Japan to Berlin."
+                android:textSize="15sp"
+                app:trimExpandedText="@string/read_less"
+                app:trimCollapsedText="@string/read_more"
+                app:trimMode="trimModeLength"
+                app:trimLength="25"
+                app:colorClickableText="@color/green_blue"/>
+            <Button
+                android:id="@+id/btn_orders"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="30dp"
+                android:text="Get Ticket"
+                android:backgroundTint="@color/orange"
+                android:onClick="Details_to_Orders"
+                android:clickable="true"/>
+
+
+
+</RelativeLayout>

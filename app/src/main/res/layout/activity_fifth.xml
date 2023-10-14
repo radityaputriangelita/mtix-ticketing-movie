@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".FifthActivity"
+    android:background="@color/green_blue">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:gravity="center_vertical">
+        <Button
+            android:id="@+id/btn_back"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginEnd="30dp"
+            android:layout_marginBottom="25dp"
+            android:background="@drawable/baseline_arrow_back_ios_24"></Button>
+        <TextView
+            android:id="@+id/order_summary_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Order Summary"
+            android:textSize="30dp"
+            android:textStyle="bold"
+            android:layout_centerHorizontal="true" />
+    </LinearLayout>
+
+
+    <ImageView
+        android:id="@+id/ticket_img"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="150dp"
+        android:src="@drawable/ticket" />
+    <ImageView
+        android:id="@+id/jwPoster"
+        android:layout_width="120dp"
+        android:layout_height="150dp"
+        android:src="@drawable/johnwick"
+        android:layout_alignStart="@id/ticket_img"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="100dp"/>
+    <TextView
+        android:id="@+id/jwTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="JOHN WICK 4"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:layout_toRightOf="@id/jwPoster"
+        android:layout_alignTop="@id/jwPoster"
+        android:layout_marginTop="70dp"
+        android:layout_marginStart="20dp"/>
+    <TextView
+        android:id="@+id/TicketUsername"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="USERNAME"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:layout_below="@id/jwTitle"
+        android:layout_alignStart="@id/jwTitle"
+        android:layout_marginTop="15dp"/>
+    <LinearLayout
+        android:id="@+id/JenisKursiTitlePilihan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/jwPoster"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp">
+        <TextView
+            android:id="@+id/jenis_kursi_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Jenis Kursi"/>
+        <TextView
+            android:id="@+id/jenis_kursi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Reguler"
+            android:layout_marginTop="5dp"
+            android:textStyle="bold"
+            android:textSize="18dp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/JumlahKursiTitlePilihan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/jwPoster"
+        android:orientation="vertical"
+        android:layout_alignEnd="@id/ticket_img"
+        android:layout_marginRight="20dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp"
+        android:gravity="center_horizontal">
+        <TextView
+            android:id="@+id/jumlah_kursi_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Jumlah Kursi"/>
+        <TextView
+            android:id="@+id/jumlah_kursi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0"
+            android:layout_marginTop="5dp"
+            android:textStyle="bold"
+            android:textSize="18dp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/RoomTheater"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/jwPoster"
+        android:orientation="vertical"
+        android:layout_alignStart="@id/ticket_img"
+        android:layout_marginLeft="20dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp"
+        android:gravity="center_horizontal">
+        <TextView
+            android:id="@+id/RoomTheaterTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ruang Studio" />
+        <TextView
+            android:id="@+id/RoomTheaterNumber"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="3"
+            android:layout_marginTop="5dp"
+            android:textStyle="bold"
+            android:textSize="18dp"/>
+    </LinearLayout>
+    <View
+        android:id="@+id/line1"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp"
+        android:layout_below="@id/JenisKursiTitlePilihan"
+        android:layout_width="300dp"
+        android:layout_height="1dp"
+        android:background="@color/orange"/>
+    <TextView
+        android:id="@+id/TitleDateTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Date and Time"
+        android:layout_below="@id/line1"
+        android:layout_alignStart="@id/RoomTheater"
+        android:layout_marginTop="15dp"/>
+    <TextView
+        android:id="@+id/MovieDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Wednesday, 20 Nov 2019,"
+        android:layout_below="@id/TitleDateTime"
+        android:layout_alignStart="@id/RoomTheater"
+        android:layout_marginTop="5dp"
+        android:textStyle="bold"
+        android:textSize="18dp"/>
+    <TextView
+        android:id="@+id/MovieTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="15:05"
+        android:layout_toRightOf="@id/MovieDate"
+        android:layout_alignBaseline="@id/MovieDate"
+        android:layout_marginLeft="2dp"
+        android:textStyle="bold"
+        android:textSize="18dp"/>
+    <TextView
+        android:id="@+id/MoviePlaceTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Place"
+        android:layout_below="@id/MovieTime"
+        android:layout_alignStart="@id/RoomTheater"
+        android:layout_marginTop="10dp"/>
+    <TextView
+        android:id="@+id/MoviePlace"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="XXI Ambarukmu Plaza"
+        android:layout_below="@id/MoviePlaceTitle"
+        android:layout_alignStart="@id/RoomTheater"
+        android:layout_marginTop="5dp"
+        android:textStyle="bold"
+        android:textSize="18dp"/>
+    <TextView
+        android:id="@+id/TicketOrdeNumberTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Order Number"
+        android:layout_below="@id/MoviePlace"
+        android:layout_marginTop="50dp"
+        android:layout_alignStart="@id/RoomTheater" />
+    <TextView
+        android:id="@+id/OrderNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="1234567890122344"
+        android:layout_below="@id/TicketOrdeNumberTitle"
+        android:layout_alignStart="@id/RoomTheater"
+        android:layout_marginTop="5dp"
+        android:textStyle="bold"
+        android:textSize="18dp"/>
+
+    <TextView
+        android:id="@+id/TicketPaymentMethodTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Payment Method"
+        android:layout_below="@id/OrderNumber"
+        android:layout_marginTop="10dp"
+        android:layout_alignStart="@id/RoomTheater" />
+    <TextView
+        android:id="@+id/TicketPaymentMethod"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Transfer Bank (BNI)"
+        android:layout_below="@id/TicketPaymentMethodTitle"
+        android:layout_alignStart="@id/RoomTheater"
+        android:layout_marginTop="5dp"
+        android:textStyle="bold"
+        android:textSize="18dp"/>
+    <TextView
+        android:id="@+id/TicketAmountPayment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Total Amount"
+        android:layout_below="@id/TicketPaymentMethod"
+        android:layout_marginTop="10dp"
+        android:layout_alignStart="@id/RoomTheater" />
+    <TextView
+        android:id="@+id/TicketTotalAmount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Rp0"
+        android:layout_below="@id/TicketAmountPayment"
+        android:layout_alignEnd="@id/JumlahKursiTitlePilihan"
+        android:layout_marginTop="5dp"
+        android:textStyle="bold"
+        android:textSize="18dp"/>
+</RelativeLayout>
